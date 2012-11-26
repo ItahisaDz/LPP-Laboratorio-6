@@ -24,4 +24,8 @@ describe Ppt do
   	Ppt.jugadas_posibles.should include :scissor => :paper
   end
 
+  it "Se debe invocar al metodo obtener_humano() para recoger la tirada del humano y que esta sea valida" do
+  	Ppt.new().respond_to?("obtener_humano").should be_true
+  end
+
 end
