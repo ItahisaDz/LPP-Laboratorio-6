@@ -17,4 +17,11 @@ describe Ppt do
 	Ppt.tiradas_validas.should include :scissor
   end
 
+  it "Debe existir una lista de jugadas posibles y quien gana" do
+  	Ppt.jugadas_posibles.should be_a Hash
+  	Ppt.jugadas_posibles.should include :rock => :scissor
+  	Ppt.jugadas_posibles.should include :paper => :rock
+  	Ppt.jugadas_posibles.should include :scissor => :paper
+  end
+
 end
