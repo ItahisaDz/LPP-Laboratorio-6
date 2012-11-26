@@ -1,11 +1,11 @@
 class Ppt
   
-  def humano_tira
-	 return @humano_tira
-  end
+	attr_reader :humano_tira, :maquina_tira
 
-  def maquina_tira
-  	return @maquina_tira
-  end
+	@@tiradas_validas = [:rock, :paper, :scissor]
+
+	def Ppt.tiradas_validas
+		@@tiradas_validas
+	end
   
 end
