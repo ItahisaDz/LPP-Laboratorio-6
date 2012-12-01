@@ -4,6 +4,7 @@ class Ppt
 
 	@@jugadas_posibles = { :rock => :scissor, :paper => :rock, :scissor => :paper }
 	@@tiradas_validas = @@jugadas_posibles.keys
+	@@resultado_maquina = ["Empate", "La Maquina Gana", "La Maquina Pierde"]
 
 	def Ppt.tiradas_validas
 		@@tiradas_validas
@@ -13,9 +14,15 @@ class Ppt
 		@@jugadas_posibles
 	end
 
+	def Ppt.resultado_maquina
+		@@resultado_maquina
+	end
+
 	def obtener_humano (humano_tira)
 		raise unless @@tiradas_validas.include? humano_tira.to_sym
 		@humano_tira = humano_tira
 	end
+
+
   
 end
