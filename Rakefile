@@ -4,7 +4,7 @@ task :default => :bin
 
 desc " Run bin/ppt_main.rb"
 task :bin do
-  sh "ruby -w -Ilib bin/ppt.rb" 
+  sh "ruby -w -Ilib bin/main_ppt.rb" 
 end
 
 desc " Run tests with --format documentation"
