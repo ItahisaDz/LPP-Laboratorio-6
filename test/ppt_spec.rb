@@ -39,7 +39,12 @@ describe Ppt do
     Ppt.resultado_maquina.should include "La Maquina Pierde"
   end
 
-  it "Debe existir un resultado para un juego, desde el punto de vista de la maquina" 
+  it "Debe existir un resultado para un juego, desde el punto de vista de la maquina" do
+    Ppt.new().respond_to?("resultado").should be_true
+    humano = Ppt.new().obtener_humano("rock")
+    maquina = Ppt.new().obtener_maquina()
+    Ppt.resultado_maquina().should include Ppt.new().resultado()
+  end
 
 
 end

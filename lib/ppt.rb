@@ -4,7 +4,7 @@ class Ppt
 
 	@@jugadas_posibles = { :rock => :scissor, :paper => :rock, :scissor => :paper }
 	@@tiradas_validas = @@jugadas_posibles.keys
-	@@resultado_maquina = ["Empate", "La Maquina Gana", "La Maquina Pierde"]
+	@@resultado_maquina = ["Empate", "La Maquina Pierde", "La Maquina Gana"]
 
 	def Ppt.tiradas_validas
 		@@tiradas_validas
@@ -20,15 +20,24 @@ class Ppt
 
 	def obtener_humano (humano_tira)
 		raise unless @@tiradas_validas.include? humano_tira.to_sym
-		@humano_tira = humano_tira
+		@humano_tira = humano_tira.to_sym
 	end
 
-	def obtener_maquina ()
+	def obtener_maquina()
 		@maquina_tira = @@tiradas_validas.sample
 	end
 
+	def resultado()
+		case @maquina_tira
+		when @humano_tira
+			@@resultado_maquina[0]
+		when @@jugadas_posibles[@humano_tira]
+			@@resultado_maquina[1]
+		else
+			@@resultado_maquina[2]
+		end
+	end
 
-
-
-  
 end
+
+
