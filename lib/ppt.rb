@@ -23,6 +23,12 @@ class Ppt
 		@humano_tira = humano_tira
 	end
 
+	def obtener_maquina ()
+		@maquina_tira = @@tiradas_validas.sample
+	end
+
+
+
 
   
 end

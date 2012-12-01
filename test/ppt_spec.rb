@@ -28,11 +28,18 @@ describe Ppt do
   	Ppt.new().respond_to?("obtener_humano").should be_true
   end
 
+  it "Se debe invocar al metodo obtener_maquina() para recoger la tirada de la maquina y que esta sea valida" do
+    Ppt.new().respond_to?("obtener_maquina").should be_true
+  end
+
   it "Debe existir una lista de resultados de un juego desde el punto de vista de la maquina" do
     Ppt.resultado_maquina.should be_a Array
     Ppt.resultado_maquina.should include "Empate"
     Ppt.resultado_maquina.should include "La Maquina Gana"
     Ppt.resultado_maquina.should include "La Maquina Pierde"
   end
+
+  it "Debe existir un resultado para un juego, desde el punto de vista de la maquina" 
+
 
 end
