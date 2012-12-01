@@ -2,6 +2,10 @@ require "ppt"
 
 describe Ppt do
 
+  before :each do
+    @ppt = Ppt.new()
+  end
+
   it "Debe existir una tirada para el humano" do
     Ppt.new().respond_to?("humano_tira").should == true
   end
@@ -55,10 +59,21 @@ describe Ppt do
   it " Se debe de comprobar que las tiradas de la maquina al ser aleatorias recorren las tres posibilidades" do
     maquina_tira = [] 
     30.times do
-      maquina_tira << Ppt.new().obtener_maquina
+      maquina_tira << Ppt.new().obtener_maquina()
     end
     maquina_tira.uniq.size.should == Ppt.tiradas_validas.size
   end
 
+  it "Se debe comprobar que las tiradas de la maquina y del humano no son siempre la misma" do
+    humano_tira = []
+    @ppt.obtener_humano("rock")
+    30.times do
+      @ppt.obtener_maquina()
+      if @ppt.humano_tira() != @ppt.maquina_tira()
+        humano_tira << @ppt.maquina_tira()
+      end
+    end
+    humano_tira.uniq.size.should > 0
+  end
 
 end
