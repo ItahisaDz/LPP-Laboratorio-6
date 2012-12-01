@@ -46,5 +46,11 @@ describe Ppt do
     Ppt.resultado_maquina().should include Ppt.new().resultado()
   end
 
+  it "Se debe invocar al metodo jugar() para determinar el ganador de la tirada" do
+    Ppt.new().respond_to?("jugar").should be_true
+    resultado = ["Empate", "humano gana", "maquina gana"]
+    resultado.should include Ppt.new().jugar()
+  end
+
 
 end

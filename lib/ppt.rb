@@ -38,6 +38,18 @@ class Ppt
 		end
 	end
 
+	def jugar()
+		case @maquina_tira
+		when @humano_tira
+			"Empate"
+		when @@jugadas_posibles[@humano_tira]
+			"humano gana"
+		else
+			"maquina gana"
+		end
+	end		
+
+
 end
 
 
