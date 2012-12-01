@@ -52,5 +52,13 @@ describe Ppt do
     resultado.should include Ppt.new().jugar()
   end
 
+  it " Se debe de comprobar que las tiradas de la maquina al ser aleatorias recorren las tres posibilidades" do
+    maquina_tira = [] 
+    30.times do
+      maquina_tira << Ppt.new().obtener_maquina
+    end
+    maquina_tira.uniq.size.should == Ppt.tiradas_validas.size
+  end
+
 
 end

@@ -48,8 +48,7 @@ class Ppt
 			"maquina gana"
 		end
 	end		
-
-
+	
 end
 
 
